@@ -12,15 +12,20 @@ struct FakeStoreApp: App {
     let apiService = APIService.shared
     let productRepository: ProductRepositoryImpl
     let getProductsUseCase: GetProductsUseCase
+    let getProductDetailsUseCase: GetProductDetailsUseCase
     
     init() {
         self.productRepository = ProductRepositoryImpl(apiService: apiService)
         self.getProductsUseCase = GetProductsUseCase(repository: productRepository)
+        self.getProductDetailsUseCase = GetProductDetailsUseCase(repository: productRepository)
     }
     
     var body: some Scene {
         WindowGroup {
-            MainTabView(getProductsUseCase: getProductsUseCase)
+            MainTabView(
+                getProductsUseCase: getProductsUseCase,
+                getProductDetailsUseCase: getProductDetailsUseCase
+            )
         }
     }
 }

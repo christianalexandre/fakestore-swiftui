@@ -10,14 +10,26 @@ import SwiftUI
 struct ProductListView: View {
     @StateObject var viewModel: ProductListViewModel
     
+    let getProductDetailsUseCase: GetProductDetailsUseCaseProtocol
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(viewModel.products) { product in
-                    ProductRowView(product: product)
-                        .onAppear {
-                            viewModel.loadMoreContentIfNeeded(currentItem: product)
-                        }
+                    NavigationLink(
+                        destination: ProductDetailView(
+                            productId: product.id,
+                            viewModel: ProductDetailViewModel(
+                                getProductDetailsUseCase: getProductDetailsUseCase
+                            )
+                        )
+                    ) {
+                        ProductRowView(product: product)
+                            .onAppear {
+                                viewModel.loadMoreContentIfNeeded(currentItem: product)
+                            }
+                    }
+                    .padding(.vertical, 4)
                 }
                 
                 if viewModel.isLoading {
@@ -26,6 +38,7 @@ struct ProductListView: View {
                         ProgressView()
                         Spacer()
                     }
+                    .listRowSeparator(.hidden)
                 }
             }
             .listStyle(.plain)

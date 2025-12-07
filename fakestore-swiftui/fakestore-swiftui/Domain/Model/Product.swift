@@ -16,4 +16,7 @@ struct Product: Identifiable, Equatable {
     let discountPercentage: Double
     let rating: Double
     let category: String
+    let brand: String?
+    let images: [String]
+    let stock: Int
 }

@@ -10,13 +10,17 @@ import SwiftUI
 
 struct MainTabView: View {
     let getProductsUseCase: GetProductsUseCaseProtocol
+    let getProductDetailsUseCase: GetProductDetailsUseCaseProtocol
     
     var body: some View {
         TabView {
-            ProductListView(viewModel: ProductListViewModel(getProductsUseCase: getProductsUseCase))
-                .tabItem {
-                    Label("Home", systemImage: "house.fill")
-                }
+            ProductListView(
+                viewModel: ProductListViewModel(getProductsUseCase: getProductsUseCase),
+                getProductDetailsUseCase: getProductDetailsUseCase
+            )
+            .tabItem {
+                Label("Home", systemImage: "house.fill")
+            }
             
             Text("Carrinho (Em breve)")
                 .tabItem {

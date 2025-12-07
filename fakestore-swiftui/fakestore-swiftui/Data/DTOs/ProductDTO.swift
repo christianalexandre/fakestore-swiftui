@@ -24,6 +24,9 @@ struct ProductDTO: Codable {
     let discountPercentage: Double
     let rating: Double
     let category: String
+    let brand: String?
+    let images: [String]
+    let stock: Int
     
     func toDomain() -> Product {
         return Product(
@@ -34,7 +37,10 @@ struct ProductDTO: Codable {
             thumbnail: thumbnail,
             discountPercentage: discountPercentage,
             rating: rating,
-            category: category
+            category: category,
+            brand: brand,
+            images: images,
+            stock: stock
         )
     }
 }
