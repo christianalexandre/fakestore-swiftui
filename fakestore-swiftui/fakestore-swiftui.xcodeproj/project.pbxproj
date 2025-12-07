@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		13E50E4C2EE612F800B46BCD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 13E50E4B2EE612F800B46BCD /* FirebaseAuth */; };
+		13E50E4E2EE612F800B46BCD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 13E50E4D2EE612F800B46BCD /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		13E50E012EE5F87200B46BCD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E50E4C2EE612F800B46BCD /* FirebaseAuth in Frameworks */,
+				13E50E4E2EE612F800B46BCD /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = "fakestore-swiftui";
 			packageProductDependencies = (
+				13E50E4B2EE612F800B46BCD /* FirebaseAuth */,
+				13E50E4D2EE612F800B46BCD /* FirebaseFirestore */,
 			);
 			productName = "fakestore-swiftui";
 			productReference = 13E50DF32EE5F87100B46BCD /* fakestore-swiftui.app */;
@@ -195,6 +204,9 @@
 			);
 			mainGroup = 13E50DEA2EE5F87100B46BCD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				13E50E4A2EE612F800B46BCD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 13E50DF42EE5F87100B46BCD /* Products */;
 			projectDirPath = "";
@@ -558,6 +570,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		13E50E4A2EE612F800B46BCD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		13E50E4B2EE612F800B46BCD /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13E50E4A2EE612F800B46BCD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		13E50E4D2EE612F800B46BCD /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13E50E4A2EE612F800B46BCD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 13E50DEB2EE5F87100B46BCD /* Project object */;
 }
