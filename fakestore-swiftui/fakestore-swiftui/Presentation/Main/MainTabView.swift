@@ -12,6 +12,8 @@ struct MainTabView: View {
     let getProductsUseCase: GetProductsUseCaseProtocol
     let getProductDetailsUseCase: GetProductDetailsUseCaseProtocol
     
+    let accountViewModel: AccountViewModel
+    
     var body: some View {
         TabView {
             ProductListView(
@@ -22,12 +24,12 @@ struct MainTabView: View {
                 Label("Home", systemImage: "house.fill")
             }
             
-            Text("Carrinho (Em breve)")
+            Text("Cart")
                 .tabItem {
                     Label("Cart", systemImage: "cart.fill")
                 }
             
-            Text("Conta (Em breve)")
+            AccountView(viewModel: accountViewModel)
                 .tabItem {
                     Label("Account", systemImage: "person.circle.fill")
                 }
