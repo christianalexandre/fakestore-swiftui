@@ -11,6 +11,7 @@ struct ProductListView: View {
     @StateObject var viewModel: ProductListViewModel
     
     let getProductDetailsUseCase: GetProductDetailsUseCaseProtocol
+    let addToCartUseCase: AddToCartUseCaseProtocol
     
     var body: some View {
         NavigationStack {
@@ -20,7 +21,8 @@ struct ProductListView: View {
                         destination: ProductDetailView(
                             productId: product.id,
                             viewModel: ProductDetailViewModel(
-                                getProductDetailsUseCase: getProductDetailsUseCase
+                                getProductDetailsUseCase: getProductDetailsUseCase,
+                                addToCartUseCase: addToCartUseCase
                             )
                         )
                     ) {

@@ -33,5 +33,8 @@ struct AccountView: View {
             Spacer()
         }
         .padding(.top, 60)
+        .onAppear {
+            viewModel.loadCurrentUser()
+        }
     }
 }

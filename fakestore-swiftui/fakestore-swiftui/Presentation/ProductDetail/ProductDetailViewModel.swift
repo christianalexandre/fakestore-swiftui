@@ -16,9 +16,12 @@ class ProductDetailViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     
     private let getProductDetailsUseCase: GetProductDetailsUseCaseProtocol
+    private let addToCartUseCase: AddToCartUseCaseProtocol
     
-    init(getProductDetailsUseCase: GetProductDetailsUseCaseProtocol) {
+    init(getProductDetailsUseCase: GetProductDetailsUseCaseProtocol,
+         addToCartUseCase: AddToCartUseCaseProtocol) {
         self.getProductDetailsUseCase = getProductDetailsUseCase
+        self.addToCartUseCase = addToCartUseCase
     }
     
     func loadProduct(id: Int) async {
@@ -34,4 +37,13 @@ class ProductDetailViewModel: ObservableObject {
         
         isLoading = false
     }
+    
+    func addToCart() async {
+            guard let product = product else { return }
+            do {
+                try await addToCartUseCase.execute(product: product)
+            } catch {
+                print("Error adding to cart: \(error)")
+            }
+        }
 }

@@ -12,22 +12,32 @@ struct MainTabView: View {
     let getProductsUseCase: GetProductsUseCaseProtocol
     let getProductDetailsUseCase: GetProductDetailsUseCaseProtocol
     
+    let addToCartUseCase: AddToCartUseCaseProtocol
+    let observeCartUseCase: ObserveCartUseCaseProtocol
+    let updateCartQuantityUseCase: UpdateCartQuantityUseCaseProtocol
+    let removeFromCartUseCase: RemoveFromCartUseCaseProtocol
+    
     let accountViewModel: AccountViewModel
     
     var body: some View {
         TabView {
             ProductListView(
                 viewModel: ProductListViewModel(getProductsUseCase: getProductsUseCase),
-                getProductDetailsUseCase: getProductDetailsUseCase
+                getProductDetailsUseCase: getProductDetailsUseCase,
+                addToCartUseCase: addToCartUseCase
             )
             .tabItem {
                 Label("Home", systemImage: "house.fill")
             }
             
-            Text("Cart")
-                .tabItem {
-                    Label("Cart", systemImage: "cart.fill")
-                }
+            CartView(viewModel: CartViewModel(
+                observeCartUseCase: observeCartUseCase,
+                updateCartQuantityUseCase: updateCartQuantityUseCase,
+                removeFromCartUseCase: removeFromCartUseCase
+            ))
+            .tabItem {
+                Label("Cart", systemImage: "cart.fill")
+            }
             
             AccountView(viewModel: accountViewModel)
                 .tabItem {

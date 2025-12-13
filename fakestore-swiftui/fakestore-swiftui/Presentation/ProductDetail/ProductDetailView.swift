@@ -106,8 +106,7 @@ struct ProductDetailView: View {
                             Spacer()
                             
                             Button(action: {
-                                // TODO: Implement Firestore Logic
-                                print("Add to cart clicked")
+                                Task { await viewModel.addToCart() }
                             }) {
                                 Text("Add to Cart")
                                     .fontWeight(.bold)

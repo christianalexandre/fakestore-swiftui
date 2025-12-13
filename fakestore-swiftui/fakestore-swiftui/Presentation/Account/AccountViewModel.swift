@@ -18,7 +18,7 @@ class AccountViewModel: ObservableObject {
     init(logoutUseCase: LogoutUseCaseProtocol, authRepository: AuthRepositoryProtocol) {
         self.logoutUseCase = logoutUseCase
         self.authRepository = authRepository
-        self.userEmail = authRepository.getCurrentUserEmail() ?? "Unknown"
+        loadCurrentUser()
     }
     
     func logout() {
@@ -27,5 +27,9 @@ class AccountViewModel: ObservableObject {
         } catch {
             print("Logout error: \(error)")
         }
+    }
+    
+    func loadCurrentUser() {
+        self.userEmail = authRepository.getCurrentUserEmail() ?? "No user detected"
     }
 }

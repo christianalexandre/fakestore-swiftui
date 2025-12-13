@@ -5,7 +5,6 @@
 //  Created by Christian Alexandre on 07/12/25.
 //
 
-
 import Foundation
 
 protocol GetProductDetailsUseCaseProtocol {
