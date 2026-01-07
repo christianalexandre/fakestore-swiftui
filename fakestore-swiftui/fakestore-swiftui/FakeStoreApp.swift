@@ -7,6 +7,9 @@
 
 import SwiftUI
 import FirebaseCore
+#if DEBUG
+import AppNetworkMonitor
+#endif
 
 @main
 struct FakeStoreApp: App {    
@@ -28,6 +31,9 @@ struct FakeStoreApp: App {
     let removeFromCartUseCase: RemoveFromCartUseCase
     
     init() {
+        #if DEBUG
+        PulseBridge.shared.start()
+        #endif
         FirebaseApp.configure()
         
         self.productRepository = ProductRepositoryImpl(apiService: apiService)

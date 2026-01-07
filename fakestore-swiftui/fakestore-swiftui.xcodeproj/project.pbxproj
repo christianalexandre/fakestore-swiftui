@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13B52A172F0EC1BD00A855BB /* AppNetworkMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 13B52A162F0EC1BD00A855BB /* AppNetworkMonitor */; };
 		13E50E4C2EE612F800B46BCD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 13E50E4B2EE612F800B46BCD /* FirebaseAuth */; };
 		13E50E4E2EE612F800B46BCD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 13E50E4D2EE612F800B46BCD /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13E50E4C2EE612F800B46BCD /* FirebaseAuth in Frameworks */,
+				13B52A172F0EC1BD00A855BB /* AppNetworkMonitor in Frameworks */,
 				13E50E4E2EE612F800B46BCD /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +123,7 @@
 			packageProductDependencies = (
 				13E50E4B2EE612F800B46BCD /* FirebaseAuth */,
 				13E50E4D2EE612F800B46BCD /* FirebaseFirestore */,
+				13B52A162F0EC1BD00A855BB /* AppNetworkMonitor */,
 			);
 			productName = "fakestore-swiftui";
 			productReference = 13E50DF32EE5F87100B46BCD /* fakestore-swiftui.app */;
@@ -206,6 +209,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				13E50E4A2EE612F800B46BCD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				13B52A152F0EC1BD00A855BB /* XCRemoteSwiftPackageReference "app-network-monitor" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 13E50DF42EE5F87100B46BCD /* Products */;
@@ -572,6 +576,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		13B52A152F0EC1BD00A855BB /* XCRemoteSwiftPackageReference "app-network-monitor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/christianalexandre/app-network-monitor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
 		13E50E4A2EE612F800B46BCD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -583,6 +595,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		13B52A162F0EC1BD00A855BB /* AppNetworkMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13B52A152F0EC1BD00A855BB /* XCRemoteSwiftPackageReference "app-network-monitor" */;
+			productName = AppNetworkMonitor;
+		};
 		13E50E4B2EE612F800B46BCD /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 13E50E4A2EE612F800B46BCD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
